@@ -2,11 +2,12 @@ var express = require("express")
 var timestamp = require("./timestamp")
 var app = express()
 
+app.get('/',function(req,res){
+  res.send('<h1>welcome to the TimeStamp Microservice</h1>')
+})
+
 app.get('*', function(req,res){
-    
-    timestamp(req.params)
-    
-    res.send(`<h1>hello timestamp! : ${timestamp(req.params)}</h1>`)
+    res.send(`<pre>${timestamp(req.params)}</pre>`)
 })
 
 app.listen(8080, function(){
