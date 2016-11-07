@@ -1,0 +1,16 @@
+include header
+body
+  .container
+    h1 Welcome to the Timestamp Microservice
+    blockquote check your date string
+    p Pass a date string as a parameter, in either unix or natural language format.
+    h3 Example Usage:
+    code https://timestamp-ms.herokuapp.com/December%2015,%202015
+    br
+    code https://timestamp-ms.herokuapp.com/1450137600
+    h3 Example Output:
+    code { "unix": 1450137600, "natural": "December 15, 2015" }
+    br
+    br
+    pre
+      a(href="http://musedivision.github.io") @musedivision

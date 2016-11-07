@@ -2,12 +2,19 @@ var express = require("express")
 var timestamp = require("./timestamp")
 var app = express()
 
+// set the view engine
+app.set('view engine', 'jade')
+
+// set the views folder
+app.set('views', (__dirname + '/views'))
+
 app.get('/',function(req,res){
-  res.send('<h1>welcome to the TimeStamp Microservice</h1>')
+  res.render('index')
 })
 
 app.get('*', function(req,res){
-    res.send(`<pre>${timestamp(req.params)}</pre>`)
+  res.set({ "Content-Type": "text/plain" })
+  res.send(timestamp(req.params))
 })
 
 app.listen(8080, function(){

@@ -11,12 +11,6 @@ function checkType(date) {
     !letters ? date = Number(date) : ""
     var valid = (new Date(date)).getTime() > 0
 
-
-    // print
-    console.log("String submitted \nChecking string....")
-    console.log(`Contains letters: ${letters}`)
-    console.log("Valid Time: ", valid)
-
     var datetype = "null"
     if(valid) {
       datetype = letters ? "natural" : "unix"
@@ -54,8 +48,11 @@ function init(param) {
     } else if (checkType(query) === "unix") {
       reply.natural = toNatural(query)
       reply.unix = Number(query)
+    } else if(checkType(query) === "null") {
+      reply.natural = null
+      reply.unix = null
     }
-
+    console.log(checkType(query))
     return JSON.stringify(reply)
 }
 
